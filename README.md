@@ -50,9 +50,9 @@ Copy pixi.js to your `lib/plugins/` folder and require it on your game module.
 
 You can make your own loader by extending ig.Loader class, there are few new functions on the loader.
 
-`initStage` init your loader graphcis here.
-`onPercentChange` called when loader percent changes.
-`draw` put your drawing functions here.
+- `initStage` init your loader graphcis here.
+- `onPercentChange` called when loader percent changes.
+- `draw` put your drawing functions here.
 
 ### Example
 
