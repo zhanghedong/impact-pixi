@@ -1,5 +1,5 @@
 // ImpactPixi
-// v0.3
+// v0.4.0
 // Eemeli Kelokorpi
 ig.module(
 	'plugins.pixi'
@@ -5990,7 +5990,7 @@ ig.Loader.inject({
 		canvas.height = 200;
 		var ctx = canvas.getContext("2d");
 		ctx.beginPath();
-		ctx.strokeStyle = "#fff";
+		ctx.strokeStyle = "#666";
 		ctx.lineWidth = 16;
 		ctx.arc(100, 100, 50, 4 / 180 * Math.PI-3, 4 / 180 * Math.PI, false);
 		ctx.stroke();
@@ -6001,9 +6001,8 @@ ig.Loader.inject({
 		this.symbol.position.y = ig.system.height/2;
 		ig.system.stage.addChild(this.symbol);
 
-		this.text = new PIXI.Text(this.percent+"%",{font:"22px Arial", fill:"#ffffff"});
+		this.text = new PIXI.Text(this.percent+"%",{font:"Bold 24px Arial", fill:"#999"});
 		this.text.anchor.x = this.text.anchor.y = 0.5;
-		this.text.alpha = 0.5;
 		this.text.position.x = ig.system.width/2;
 		this.text.position.y = ig.system.height/2;
 		ig.system.stage.addChild(this.text);
