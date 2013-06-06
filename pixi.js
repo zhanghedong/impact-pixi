@@ -1,5 +1,5 @@
 // ImpactPixi
-// v0.1
+// v0.2
 // Eemeli Kelokorpi
 ig.module(
 	'plugins.pixi'
@@ -174,13 +174,14 @@ ig.Game.inject({
 	interactive: true,
 
 	init: function() {
-		for (var i = 0; i < ig.system.stage.children.length; i++) {
-			// ig.system.stage.removeChild(ig.system.stage.children[i]);
-			ig.system.stage.__removeChild(ig.system.stage.children[i]);
-		};
-		ig.system.stage.children.length = 0;
+		// for (var i = 0; i < ig.system.stage.children.length; i++) {
+		// 	ig.system.stage.removeChild(ig.system.stage.children[i]);
+		// 	ig.system.stage.__removeChild(ig.system.stage.children[i]);
+		// };
+		// ig.system.stage.children.length = 0;
+		ig.system.stage = new PIXI.Stage(this.clearColor.replace("#","0x"))
 
-		ig.system.stage.setBackgroundColor(this.clearColor.replace("#","0x"));
+		// ig.system.stage.setBackgroundColor(this.clearColor.replace("#","0x"));
 		ig.system.stage.setInteractive(this.interactive ? true : false);
 
 		if(this.interactive) {
@@ -219,7 +220,7 @@ ig.Loader.inject({
 	audioAssets: [],
 	audioUnloaded: [],
 	percent: 0,
-	timeout: 500,
+	timeout: 100,
 
 	init: function( gameClass, resources ) {
 		if(this.clearColor) ig.system.stage.setBackgroundColor(this.clearColor.replace("#","0x"));
@@ -239,12 +240,11 @@ ig.Loader.inject({
 		this.loader.onProgress = this.progress.bind(this);
 		this.loader.onComplete = this.complete.bind(this);
 
+		if(this.assets.length == 0) this.percent = 100;
+
 		this.initStage();
 
-		if(this.assets.length == 0) {
-			this.percent = 100;
-			this.complete();
-		}
+		if(this.assets.length == 0) this.complete();
 	},
 
 	initStage: function() {
@@ -264,7 +264,7 @@ ig.Loader.inject({
 		this.symbol.position.y = ig.system.height/2;
 		ig.system.stage.addChild(this.symbol);
 
-		this.text = new PIXI.Text("0%",{font:"22px Arial", fill:"#ffffff"});
+		this.text = new PIXI.Text(this.percent+"%",{font:"22px Arial", fill:"#ffffff"});
 		this.text.anchor.x = this.text.anchor.y = 0.5;
 		this.text.alpha = 0.5;
 		this.text.position.x = ig.system.width/2;
