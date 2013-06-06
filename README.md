@@ -2,9 +2,9 @@
 
 Pixi.js renderer module for Impact
 
-## Example
+## Demo
 
-https://github.com/ekelokorpi/impact-pixi-example
+http://kelokorpi.com/impactpixi/example/
 
 ## Module
 
