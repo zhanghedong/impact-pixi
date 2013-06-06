@@ -1,7 +1,10 @@
-ImpactPixi
-==========
+# ImpactPixi
 
 Pixi.js renderer module for Impact
+
+## Demo
+
+http://kelokorpi.com/impactpixi/blocks/
 
 ## Module
 
@@ -11,6 +14,7 @@ Copy pixi.js to your `lib/plugins/` folder and require it on your game module.
 
 - Your main stage is at `ig.system.stage`.
 - Always call `this.parent();` on your ig.Game class init function.
+- Load assets with `ig.Asset()`
 
 ### Example usage
 
@@ -25,8 +29,8 @@ Copy pixi.js to your `lib/plugins/` folder and require it on your game module.
 	MyGame = ig.Game.extend({
 		interactive: true,
 		clearColor: "#ffffff",
-		images: [
-			new ig.Image("media/sprite.png")
+		assets: [
+			new ig.Asset("media/sprite.png")
 		],
 
 		init: function() {
