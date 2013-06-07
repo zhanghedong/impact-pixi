@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ImpactPixi by ekelokorpi</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/ekelokorpi/impact-pixi">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/ekelokorpi/impact-pixi/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/ekelokorpi/impact-pixi/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>ImpactPixi</h1>
+          <p>Pixi.js renderer module for Impact</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/ekelokorpi">ekelokorpi</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="impactpixi" class="anchor" href="#impactpixi"><span class="octicon octicon-link"></span></a>ImpactPixi</h1>
+
+<p>Pixi.js renderer module for Impact</p>
+
+<h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p><a href="http://kelokorpi.com/impactpixi/example/">http://kelokorpi.com/impactpixi/example/</a></p>
+
+<h2>
+<a name="module" class="anchor" href="#module"><span class="octicon octicon-link"></span></a>Module</h2>
+
+<h3>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h3>
+
+<p>Copy <code>pixi.js</code> to your <code>lib/plugins/</code> folder and require <code>plugins.pixi</code> on your game main module.</p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<ul>
+<li>Your main stage is at <code>ig.system.stage</code>.</li>
+<li>Always first call <code>this.parent();</code> on your ig.Game class init function.</li>
+<li>Load assets with <code>ig.Asset()</code>.</li>
+</ul><h2>
+<a name="loader" class="anchor" href="#loader"><span class="octicon octicon-link"></span></a>Loader</h2>
+
+<p>You can make your own loader by extending ig.Loader class, there are few new functions on the loader.</p>
+
+<ul>
+<li>
+<code>initStage</code> init your loader graphcis here.</li>
+<li>
+<code>onPercentChange</code> called when loader percent changes.</li>
+<li>
+<code>draw</code> put your drawing functions here.</li>
+</ul><h3>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<pre><code>MyLoader = ig.Loader.extend({
+    initStage: function() {
+        var canvas = document.createElement("canvas");
+        canvas.width = 100;
+        canvas.height = 100;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0,0,100,100);
+
+        this.sprite = new PIXI.Sprite(PIXI.Texture.fromCanvas(canvas));
+        this.sprite.anchor.x = this.sprite.anchor.y = 0.5;
+        this.sprite.position.x = ig.system.width / 2;
+        this.sprite.position.y = ig.system.height / 2;
+        ig.system.stage.addChild(this.sprite);
+    },
+
+    draw: function() {
+        this.sprite.rotation += 0.2;
+    }
+});
+</code></pre>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
