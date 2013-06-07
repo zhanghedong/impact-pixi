@@ -1,6 +1,6 @@
 // ImpactPixi
 // v0.4.0
-// Eemeli Kelokorpi
+// Eemeli Kelokorpi 2013
 ig.module(
 	'plugins.pixi'
 )
