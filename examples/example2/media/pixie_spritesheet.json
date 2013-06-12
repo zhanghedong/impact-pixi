@@ -179,7 +179,7 @@
 "meta": {
 	"app": "http://www.texturepacker.com",
 	"version": "1.0",
-	"image": "Pixie.png",
+	"image": "pixie.png",
 	"format": "RGBA8888",
 	"size": {"w":1023,"h":719},
 	"scale": "1",
