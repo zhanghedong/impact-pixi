@@ -55,6 +55,6 @@ MyGame = ig.Game.extend({
 
 ig.System.debug = true;
 
-ig.main("#canvas", MyGame, 60, 1024, 672);
+ig.main("#canvas", MyGame, 60, window.innerWidth, window.innerHeight);
 
 });
