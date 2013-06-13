@@ -12,6 +12,10 @@ http://kelokorpi.com/impactpixi/example/
 
 Copy `pixi.js` to your `lib/plugins/` folder and require `plugins.pixi` on your game main module.
 
+### Example
+
+- See `examples` folder
+
 ### Usage
 
 - Your main stage is at `ig.system.stage`.
