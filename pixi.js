@@ -7678,14 +7678,11 @@ ig.Game.inject({
 	interactive: true,
 
 	init: function() {
-		// for (var i = 0; i < ig.system.stage.children.length; i++) {
-		// 	ig.system.stage.removeChild(ig.system.stage.children[i]);
-		// 	ig.system.stage.__removeChild(ig.system.stage.children[i]);
-		// };
-		// ig.system.stage.children.length = 0;
-		ig.system.stage = new PIXI.Stage(this.clearColor.replace("#","0x"))
+		for (var i = ig.system.stage.children.length - 1; i >= 0; i--) {
+			ig.system.stage.removeChild(ig.system.stage.children[i]);
+		};
 
-		// ig.system.stage.setBackgroundColor(this.clearColor.replace("#","0x"));
+		ig.system.stage.setBackgroundColor(this.clearColor.replace("#","0x"));
 		ig.system.stage.setInteractive(this.interactive ? true : false);
 
 		if(this.interactive) {
